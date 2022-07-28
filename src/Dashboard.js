@@ -9,7 +9,7 @@ function App() {
   const[editUser,setEditUser]=useState({})
   let fetchData=async ()=>{
     try {
-     let res= await axios.get("http://localhost:3001/students") 
+     let res= await axios.get("https://express-nodejs-dem0.herokuapp.com/students") 
      setUser(res.data);
     
     } catch (error) {
@@ -29,11 +29,11 @@ function App() {
     onSubmit:async (values)=>{
    try {
     if(!isEdit){
-      await axios.post('http://localhost:3001/student',values)
+      await axios.post('https://express-nodejs-dem0.herokuapp.com/student',values)
        fetchData();
     }else{
       delete values._id
-      await axios.put(`http://localhost:3001/student/${editUser._id}`,values)
+      await axios.put(`https://express-nodejs-dem0.herokuapp.com/${editUser._id}`,values)
       setIsEdit(false)
       fetchData();
     }
@@ -45,7 +45,7 @@ function App() {
 
   let handleEdit=async (id)=>{
     try {
-      let student=await axios.get(`http://localhost:3001/student/${id}`)
+      let student=await axios.get(`https://express-nodejs-dem0.herokuapp.com/${id}`)
       formik.setValues(student.data)
       setEditUser(student.data)
       setIsEdit(true)
@@ -54,7 +54,7 @@ function App() {
     }
   }
   let handleDelete=async (id)=>{
-    let student=await axios.delete(`http://localhost:3001/student/${id}`)
+    let student=await axios.delete(`https://express-nodejs-dem0.herokuapp.com/${id}`)
     formik.setValues(student.data)
   }
  
