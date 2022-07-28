@@ -53,6 +53,7 @@ function Login() {
       </div>
       </div>
       <p>Dont have account? Please <Link to={"/register"}>register</Link> </p>
+      <p>dashboard <Link to={"/dashboard"}>dashboard</Link> </p>
     </div>
   )
 }
