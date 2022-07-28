@@ -16,9 +16,9 @@ function App() {
       console.log(error);
     }
   }
- 
+  fetchData(); 
   useEffect(()=>{
-    fetchData(); 
+   
   },[]);
 
   let formik=useFormik({
